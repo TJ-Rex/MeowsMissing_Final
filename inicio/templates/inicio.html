@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<header class="row" style="background-color: transparent;">
+    <div class="col-md-4">
+        <img src="{% static 'images/logo.png' %}" alt="logo" width="420" height="350">
+    </div>
+    <div class="col-md-8 my-auto text-light">
+        <h1 style="color: #000000;"> <strong>Somos Meow's Missing</strong></h1>
+        <h3 style="color: red;">Ojala podamos serte de ayuda para encontrar a tu ser querido</h3>
+        <p style="font-size: 1.1rem;"> Bienvenidos a Meow’s Missing, el primer sistema integral de registro y monitoreo dedicado a la búsqueda y recuperación de menores de edad desaparecidos en la ciudad de Manta, provincia de Manabí.
+
+            En esta plataforma encontrarás información actualizada y relevante sobre casos recientes, reportes oficiales y noticias de última hora relacionadas con la desaparición de menores. Nuestro objetivo principal es ofrecer una herramienta eficaz que conecte a las familias, autoridades y comunidades en la lucha por encontrar a los niños y niñas desaparecidos.
+            
+            Meow’s Missing es más que una página web; es un espacio creado para sensibilizar, informar y actuar. Conoce los detalles de cada caso, colabora con las investigaciones aportando información y mantente al tanto de los esfuerzos para garantizar la seguridad de nuestros menores.</p>
+    </div>
+</header>
+
+<hr style="border: 3px solid #000000; margin: 2rem 6;">
+
+
+<div class="row my-4 text-center">
+    <h3 style="color: #000000;">Noticias que te pueden interesar</h3>
+
+    <p style="font-size: 1.1rem;">Mantente informado con las últimas actualizaciones sobre casos de menores desaparecidos a través de nuestras redes sociales. En esta sección encontrarás enlaces directos a noticias relevantes compartidas en plataformas como Facebook, Twitter, Instagram y más.</p>
+
+    {% for project in links %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{project.Imagen.url}}" alt="{{project.Titulo}}" class="card-img-top">
+
+            <div class="card-body text-light">
+                <h2 style="font-size: 1.50rem;">{{project.Titulo}}</h2>
+                <p>{{project.Descripcion}}</p>
+
+                {% if project.Url %}
+                <a href="{{project.Url}}" class="btn btn-light rounded-0 btn-sm text-truncate d-inline-block"
+                   style="max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" 
+                   target="_blank">{{ project.Url }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

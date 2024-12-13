@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-white" >Gestión de Usuarios</h1>
+    <form method="GET" class="mb-4">
+        <input type="text" name="q" class="form-control" placeholder="Buscar usuarios..." value="{{ request.GET.q }}">
+        <button type="submit" class="btn btn-primary mt-2">Buscar</button>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Administrador</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in usuarios %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.is_staff|yesno:"Sí,No" }}</td>
+                <td>
+                    <form method="POST" class="d-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        {% if not user.is_staff %}
+                        <button type="submit" name="accion" value="hacer_admin" class="btn btn-success">Hacer Admin</button>
+                        {% endif %}
+                        <button type="submit" name="accion" value="eliminar_usuario" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar a este usuario?');">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

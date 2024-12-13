@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center text-white my-4" >Reportes</h1>
+
+<div class="d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="container">
+        <!-- Formulario de búsqueda -->
+        <form method="GET" class="mb-4">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" name="q" class="form-control" placeholder="Buscar por nombre o descripción" value="{{ request.GET.q }}">
+                </div>
+                <div class="col-md-3">
+                    <select name="estado" class="form-select">
+                        <option value="">-- Filtrar por estado --</option>
+                        <option value="Busqueda Activa" {% if request.GET.estado == "Busqueda Activa" %}selected{% endif %}>Busqueda Activa</option>
+                        <option value="Localizado" {% if request.GET.estado == "Localizado" %}selected{% endif %}>Localizado</option>
+                        <option value="No encontrado" {% if request.GET.estado == "No encontrado" %}selected{% endif %}>No encontrado</option>
+
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" name="fecha" class="form-control" value="{{ request.GET.fecha }}">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">Buscar</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Listado de reportes -->
+        <div class="row g-4 justify-content-center">
+            {% for reporte in reportes %}
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card" style="background-color: black; color: white;">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <!-- Imagen estilo perfil -->
+                        <div class="profile-img mb-3" style="width: 150px; height: 150px; overflow: hidden; border-radius: 50%;">
+                            <img src="{{ reporte.Imagen.url }}" alt="{{ reporte.Nombres }} {{ reporte.Apellidos }}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <!-- Contenido centrado y ajustado al tamaño de la foto -->
+                        <div class="text-center" style="width: 300px;">
+                            <h5 class="card-title" style="color: #810808;">{{ reporte.Nombres }} {{ reporte.Apellidos }}</h5>
+                            <p class="card-text"><strong>Estado:</strong> {{ reporte.Estado }}</p>
+                            <p style="color: red;">{{ reporte.Fecha|date:'M d Y'|upper }}</p>
+                        </div>
+
+                        <!-- Botón al final -->
+                        <a href="{% url 'reportes:reportes_details' reporte.id %}" class="btn btn-primary mt-auto">Ver Más</a>
+                        {% if request.user.is_staff %}
+                        <form method="POST" action="{% url 'reportes:eliminar_reporte' reporte.id %}" 
+                              onsubmit="return confirm('¿Estás seguro de que deseas eliminar este reporte?');"
+                              style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">No se encontraron reportes que coincidan con los criterios de búsqueda.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

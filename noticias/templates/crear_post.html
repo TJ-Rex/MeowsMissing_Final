@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container">
+  <div class="row">
+    <section class="col-md-6 offset-md-3 mt-2">
+      <h1 class="text-center text-white">Crear Noticia</h1>
+
+      <!-- Mostrar mensajes de éxito -->
+      {% if messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+
+      <!-- Formulario para crear noticia -->
+      <form action="{% url 'noticias:crear_post' %}" method="POST" enctype="multipart/form-data" class="card card-body">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="titulo">Título</label>
+          <input type="text" name="Titulo" id="titulo" class="form-control" placeholder="Ingrese el título" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion">Descripción</label>
+          <textarea name="Descripcion" id="descripcion" rows="4" class="form-control" placeholder="Escriba la descripción" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="imagen">Imagen</label>
+          <input type="file" name="Imagen" id="imagen" class="form-control" accept="image/*" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="autor">Autor</label>
+          <input type="text" name="Autor" id="autor" class="form-control" placeholder="Nombre del autor" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="fecha">Fecha</label>
+          <input type="date" name="Fecha" id="fecha" class="form-control">
+        </div>
+
+        <button class="btn btn-primary">Crear Noticia</button>
+      </form>
+    </section>
+  </div>
+</main>
+{% endblock %}
+

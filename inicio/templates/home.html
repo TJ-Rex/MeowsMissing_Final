@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<main class="container py-5">
+    <section class="card card-body border border-2 border-danger" style="background-color: transparent;">
+        <h1 class="display-1 text-center" style="color: rgb(163, 20, 20);">Meow's Missing</h1>
+        <p class="highlight-text">
+            Bienvenidos a Meow’s Missing, el primer sistema integral de registro y monitoreo dedicado a la búsqueda y recuperación de menores de edad desaparecidos en la ciudad de Manta, provincia de Manabí.
+
+            En esta plataforma encontrarás información actualizada y relevante sobre casos recientes, reportes oficiales y noticias de última hora relacionadas con la desaparición de menores. Nuestro objetivo principal es ofrecer una herramienta eficaz que conecte a las familias, autoridades y comunidades en la lucha por encontrar a los niños y niñas desaparecidos.
+            
+            Meow’s Missing es más que una página web; es un espacio creado para sensibilizar, informar y actuar. Conoce los detalles de cada caso, colabora con las investigaciones aportando información y mantente al tanto de los esfuerzos para garantizar la seguridad de nuestros menores.
+        </p>
+        <div class="text-center py-3" >
+            <a class="btn btn-primary" href="/signin/">
+                Iniciar Sesión
+            </a>
+            <a class="btn btn-primary" href="/signup/">
+                Registrarse
+
+            </a>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

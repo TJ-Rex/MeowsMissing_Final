@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container">
+  <div class="row">
+    <section class="col-md-6 offset-md-3 mt-2">
+      <h1 class="text-white" >Crear Reporte</h1>
+      
+      <!-- Bloque para mostrar mensajes -->
+      {% if messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+
+      <form action="{% url 'reportes:crear_reporte' %}" method="POST" enctype="multipart/form-data" class="card card-body">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="nombres">Nombres</label>
+          <input type="text" name="Nombres" id="nombres" 
+          class="form-control" placeholder="Ingrese los nombres" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="apellidos">Apellidos</label>
+          <input type="text" name="Apellidos" id="apellidos" 
+          class="form-control" placeholder="Ingrese los apellidos" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="contacto">Contacto</label>
+          <input type="text" name="Contacto" id="contacto" 
+          class="form-control" placeholder="Ingrese un número de contacto" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion">Descripción</label>
+          <textarea name="Descripcion" id="descripcion" rows="4" 
+          class="form-control" placeholder="Describa el reporte" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="imagen">Imagen</label>
+          <input type="file" name="Imagen" id="imagen" 
+          class="form-control" accept="image/*" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="fecha">Fecha</label>
+          <input type="date" name="Fecha" id="fecha" 
+          class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="estado">Estado</label>
+          <select name="Estado" id="estado" class="form-control" required>
+            <option value="Busqueda Activa">Busqueda Activa</option>
+            <option value="Localizado">Localizado</option>
+            <option value="No encontrado">No encontrado</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary">
+          Crear Reporte
+        </button>
+      </form>
+    </section>
+  </div>
+</main>
+{% endblock %}

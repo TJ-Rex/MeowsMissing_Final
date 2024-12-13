@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Notificaciones</h1>
+
+    <div class="row">
+        <!-- Noticias -->
+        <div class="col-md-6 noticias">
+            <h2 class="text-primary">Noticias</h2>
+            <h6 class="text-secondary mb-3 text-white"><strong>Últimas actualizaciones de interés</strong></h6>
+            <div class="list-group">
+                {% for noticia in noticias %}
+                    <a href="/noticias/{{ noticia.id }}/" class="list-group-item notification-card">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1"><strong>{{ noticia.Titulo }}</strong></h5>
+                            <small class="text-muted"><strong>{{ noticia.Fecha|date:"M d, Y" }}</strong></small>
+                        </div>
+                        <p class="mb-1">{{ noticia.Descripcion|striptags|truncatechars:80 }}</p>
+                    </a>
+                {% empty %}
+                    <p class="text-muted">No hay noticias nuevas.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Reportes -->
+        <div class="col-md-6 reportes">
+            <h2 class="text-danger">Reportes</h2>
+            <h6 class="text-secondary mb-3 text-white"><strong>Casos recientes reportados</strong></h6>
+            <div class="list-group">
+                {% for reporte in reportes %}
+                    <a href="/reportes/{{ reporte.id }}/" class="list-group-item notification-card">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1"><strong>{{ reporte.Nombres }} {{ reporte.Apellidos }}</strong></h5>
+                            <small class="text-muted"><strong>{{ reporte.Fecha|date:"M d, Y" }}</strong></small>
+                        </div>
+                        <p class="mb-1">{{ reporte.Descripcion|striptags|truncatechars:80 }}</p>
+                    </a>
+                {% empty %}
+                    <p class="text-muted">No hay reportes nuevos.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

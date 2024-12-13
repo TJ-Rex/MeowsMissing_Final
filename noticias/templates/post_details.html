@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="detalle-noticia">
+    <div class="text-center">
+        <h2>{{ post.Titulo }}</h2>
+        <h3 class="my-2 h5 text-light">{{ post.Fecha|date:'F j Y' }}</h3>
+        <h3><medium class="text-white">Autor: {{ post.Autor }}</medium></h3>
+    
+        <img src="{{ post.Imagen.url }}" alt="{{ post.Titulo }}" class="img-fluid">
+    
+        <div class="my-4">
+            <p>{{ post.Descripcion|safe }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="comentarios mt-5">
+    <h1 class="text-light">Comentarios</h1>
+    <ul class="list-group">
+        {% for comentario in comentarios %}
+            <li class="list-group-item">
+                <strong>{{ comentario.autor.username }}</strong>
+                <p>{{ comentario.texto }}</p>
+                <small>{{ comentario.fecha|date:'F j, Y, g:i a' }}</small>
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'noticias:eliminar_comentario' comentario.id %}" class="text-danger">Eliminar</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% if request.user.is_authenticated %}
+<div class="mt-4" style="margin-top: 1.5rem; padding: 1rem; background-color: #64636395; border: 2px solid #464646; border-radius: 20px;">
+    <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #ffffff; text-align: center;">Deja tu comentario</h3>
+    <form method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+        {% csrf_token %}
+        <div style="margin-bottom: 0.1rem;">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 0.5rem 1.5rem; font-size: 1rem; background-color: #007bff; border: none; color: #fff; border-radius: 10px;">
+            Comentar
+        </button>
+    </form>
+</div>
+
+{% else %}
+    <p>Inicia sesión para comentar.</p>
+{% endif %}
+
+{% endblock %}
