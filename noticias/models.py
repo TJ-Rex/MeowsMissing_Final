@@ -1,10 +1,11 @@
 from django.db import models
 import datetime
+from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
     Titulo = models.CharField(max_length=300)
     Descripcion = models.TextField(max_length=5000)
-    Imagen = models.ImageField(upload_to='noticias/images')
+    Imagen = CloudinaryField('image')
     Fecha = models.DateField(default=datetime.date.today)  # Corrige para usar `default`
     Autor = models.CharField(max_length=200)  # Nuevo campo para el autor
 
