@@ -1,5 +1,7 @@
-db.sqlite3
-venv
-__pycache__
+# ./build.sh
 
-staticfiles
+venv
+db.sqlite3
+media
+__pycache__
+**/__pycache__

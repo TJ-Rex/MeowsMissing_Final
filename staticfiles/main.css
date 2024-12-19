@@ -1,0 +1,518 @@
+/* HOME */
+
+.highlight-text {
+    font-weight: bold;
+    text-align: justify;
+    padding: 15px;
+  }
+  
+
+/* CSS de INICIO */
+
+/*body{
+    background: #000000; 
+}*/
+
+/* Estilos para la Barra de Navegación */
+body {
+    background: linear-gradient(145deg, #0a0a0a, #1e1e1e); /* Un degradado sutil */
+    color: #e0e0e0; /* Texto claro en contraste */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Opcional: aplica sombras suaves */
+body {
+    box-shadow: inset 0px 0px 10px #111111;
+}
+
+
+
+
+/*.custom-header{
+    background: #e40202;
+}*/
+
+.custom-header {
+    background-color: #8b0000; /* Rojo oscuro suave */
+    padding: 15px 0; /* Espacio superior e inferior */
+    text-align: center; /* Centrado del contenido */
+    color: #ffffff; /* Blanco suave para contraste */
+    font-family: Arial, sans-serif;
+}
+
+.custom-header h1 {
+    font-size: 2em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.custom-header p {
+    font-size: 1em;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.custom-header a {
+    color: #f5f5f5;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: #6b0000; /* Rojo oscuro para botones */
+    transition: background-color 0.3s;
+}
+
+.custom-header a:hover {
+    background-color: #4d0000; /* Cambio de color al pasar el cursor */
+}
+
+
+
+/*.card-project:hover{
+    border: 4px solid rgb(255, 0, 0);
+    cursor: pointer;
+    background: #ff00008b;
+}*/
+
+.card-project {
+    border: 2px solid #6b0000; /* Borde ligero inicial */
+    border-radius: 6px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: all 0.3s ease; /* Transición para un efecto suave */
+    background-color: #6b0000; /* Fondo blanco inicial */
+    padding: 16px; /* Espacio interno */
+}
+
+.card-project:hover {
+    border: 4px solid #ffffff; /* Borde rojo suave al pasar el cursor */
+    background-color: #f9e9e9; /* Fondo ligeramente rojo */
+    cursor: pointer;
+    transform: scale(1.05); /* Escala ligera para hacer zoom */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+}
+
+.card-project h3 {
+    color: #333; /* Color de texto oscuro */
+    font-size: 1.25em; /* Tamaño del encabezado */
+    margin-bottom: 8px; /* Espacio inferior */
+}
+
+.card-project p {
+    color: #555; /* Color de texto gris */
+    font-size: 1em; /* Tamaño del texto */
+    line-height: 1.5; /* Altura de línea para mejor legibilidad */
+}
+
+.card-project:hover h3, .card-project:hover p {
+    color: #f91414; /* Cambia el color del texto al pasar el cursor */
+}
+
+
+
+
+
+/* CSS de NOTICIAS */
+
+/* Estilo general para el encabezado */
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Estilo del contenedor general */
+.p-3 {
+    padding: 15px;
+}
+
+/* Estilo de las tarjetas */
+.card.card-body {
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card.card-body:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del post */
+.card .img-fluid {
+    border-radius: 5px;
+    max-height: 150px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Estilos para el título */
+.card h2 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 0;
+    color: #9c0101; /* Rojo suave */
+}
+
+/* Texto de descripción */
+.card p {
+    font-size: 1em;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+/* Fecha del post */
+.card .fecha {
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Botón de leer más */
+.card a.btn-primary {
+    background-color: #6b0000;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.card a.btn-primary:hover {
+    background-color: #6b000082; /* Cambio de color al pasar el cursor */
+}
+
+/* Estilo para el layout responsivo */
+@media (max-width: 768px) {
+    .col-3, .col-9 {
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* CSS de NOTICIAS DETALLADAS */
+
+.detalle-noticia p {
+    font-size: 1.2rem; /* Tamaño legible */
+    line-height: 1.8; /* Espaciado optimizado */
+    color: #f8f9fa; /* Texto claro */
+    margin: 20px auto; /* Espaciado automático para centrar */
+    max-width: 80%; /* Reduce el ancho para evitar que ocupe toda la pantalla */
+    
+    background-color: #333333; /* Fondo oscuro */
+    font-family: 'Georgia', serif; /* Fuente elegante */
+    padding: 15px 20px; /* Espaciado interno */
+    border-left: 5px solid #a51111; /* Barra decorativa a la izquierda */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+    white-space: pre-line;
+}
+
+.detalle-noticia p:hover {
+    background-color: #444444; /* Cambio sutil al pasar el cursor */
+    color: #ffdddd; /* Resaltado del texto */
+    border-left: 5px solid #ff5555; /* Color más vibrante */
+}
+
+
+/* Encabezados */
+.detalle-noticia h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #e74c3c; /* Color destacado */
+}
+
+.detalle-noticia h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.detalle-noticia img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+    border-radius: 10px;
+    border: 3px solid rgba(172, 7, 7, 0.678);
+}
+
+
+
+
+
+/* CSS de BARRA DE CONTACTO */
+
+footer {
+    background: #202020;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1 1 30%;
+    min-width: 200px;
+}
+
+.footer-section h2, .footer-section h3 {
+    color: #820000;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section ul li i {
+    margin-right: 10px;
+    color: #820000;
+}
+
+.footer-section ul.social-icons {
+    display: flex;
+    gap: 30px;
+    font-size: 25px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+    color: #ccc;
+}
+
+/* Bordes para los enlaces */
+.footer-section ul li a {
+    border: 1px solid #ff0000; /* Borde rojo */
+    padding: 5px 8px; /* Espaciado interno */
+    color: #ccc; /* Color inicial del texto */
+    text-decoration: none; /* Quitar subrayado */
+    margin: 5px 0; /* Espaciado entre enlaces */
+    display: inline-block; /* Para bordes ajustados al contenido */
+    transition: all 0.3s ease; /* Transición para hover */
+}
+
+/* Hover en los enlaces */
+.footer-section ul li a:hover {
+    border-color: #fff; /* Cambiar el color del borde al pasar el mouse */
+    color: #ff0000; /* Cambiar el color del texto */
+}
+
+
+/* Contenedor general */
+.post-container {
+    background-color: #222; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px;
+    border-radius: 10px;    
+    max-width: 650px;
+    margin: 25px auto;
+  }
+  
+  /* Título */
+  .post-header .post-title {
+    font-size: 2rem;
+    color: #ba0202; /* Amarillo vibrante #f8b400 */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  
+  .post-header .post-date {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+  
+
+/* Imagen principal */
+.post-image {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 400px; /* Tamaño máximo para que no sea demasiado grande */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Asegura que no se corte ninguna parte de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 0 auto; /* Centra la imagen */
+    display: block; /* Asegura que se comporte como un bloque */
+  }
+  
+  
+  /* Descripción */
+  .post-description p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  .download-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #9b0010f6; /* Rojo estilo Bootstrap */
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #bd2130; /* Rojo más oscuro */
+  }
+  
+  /* Estado y contacto */
+  .post-status {
+    margin-top: 20px;
+  }
+  
+  .post-status p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .status, .contact {
+    font-weight: bold;
+    color: #f8b400; /* Amarillo vibrante */
+  }
+
+
+
+  /* APARTADO DE NOTICIAS*/
+
+/* Encabezado principal */
+h1 {
+    font-weight: 700;
+    color:  #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+
+.noticias h2 {
+    color: #0053ac; /* Azul fuerte */
+    font-size: 2rem; /* Tamaño más grande */
+    font-weight: 800; /* Negrita extra */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    border-bottom: 3px solid #0053ac; /* Línea decorativa debajo */
+    padding-bottom: 0.5rem; /* Espaciado inferior dentro del texto */
+}
+
+.noticias .notification-card {
+    border: 1px solid #007bff;
+    border-radius: 25px;
+    padding: 15px;
+    background-color: #75abdece; /* Fondo claro */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/*ANIMACION NOTICIAS*/
+.noticias .notification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.25);
+}
+
+/* Reportes */
+.reportes h2 {
+    color: #bd1c2c; /* Rojo */
+    font-size: 2rem; /* Tamaño más grande */
+    font-weight: 800; /* Negrita extra */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    border-bottom: 3px solid #bd1c2c; /* Línea decorativa debajo */
+    padding-bottom: 0.5rem; /* Espaciado inferior dentro del texto */
+}
+
+.reportes .notification-card {
+    border: 1px solid #dc3545;
+    border-radius: 25px;
+    padding: 15px;
+    background-color: #d37e7ec4; /* Fondo claro */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/*ANIMACION REPORTES*/
+.reportes .notification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.25);
+}
+
+
+/*COLOR DE h6 en notificaciones*/
+.text-white {
+    color: white;
+}
+
+
+
+
+
+
+/* Estilo encapsulado para la sección de comentarios */
+.comentarios {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #8c070769;
+    border-radius: 25px;
+}
+
+.comentarios .list-group-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #2b2a2adc;
+    border: 2px solid #1c1b1b;
+    border-radius: 20px;
+}
+
+.comentarios .list-group-item strong {
+    display: block;
+    font-size: 1rem;
+    color: #ffa8a8;
+}
+
+.comentarios .list-group-item p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.comentarios .list-group-item small {
+    font-size: 0.85rem;
+    color: #aeaeae;
+}
+
+.comentarios .list-group-item .text-danger {
+    font-size: 0.9rem;
+    color: #dc3545;
+    text-decoration: none;
+}
+
+.comentarios .list-group-item .text-danger:hover {
+    text-decoration: underline;
+}
